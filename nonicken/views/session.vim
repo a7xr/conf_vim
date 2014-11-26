@@ -596,14 +596,14 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /media/hdd_sda7/ms
+cd ~/.dia
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ~/ms_conf/os_tool
-args ~/ms_conf/os_tool
-edit ~/ms_conf/os_tool
+badd +0 .git/MERGE_MSG
+args .git/MERGE_MSG
+edit .git/MERGE_MSG
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -714,12 +714,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 125 - ((0 * winheight(0) + 11) / 23)
+let s:l = 3 - ((2 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-125
-normal! 0
+3
+normal! 011l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
